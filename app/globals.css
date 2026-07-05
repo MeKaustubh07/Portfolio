@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-void text-slate-200 font-body antialiased overflow-x-hidden;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: #fff;
+}
+
+/* thin scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 3px;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-soft via-accent-cyan to-accent-pink;
+}
+
+.glass {
+  background: rgba(11, 11, 26, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(139, 92, 246, 0.12);
+}
+
+.card-border {
+  border: 1px solid rgba(139, 92, 246, 0.14);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-border:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.12);
+}
+
+.section-heading {
+  @apply font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white;
+}
+
+.section-label {
+  @apply font-mono text-xs sm:text-sm tracking-[0.35em] uppercase text-accent-soft;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
