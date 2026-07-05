@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, Code2 } from 'lucide-react';
 import { profile } from '@/lib/data';
@@ -57,8 +58,8 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden grid-bg">
-      {/* 3D scene */}
-      <div className="absolute inset-0 md:left-1/3 opacity-80 md:opacity-100 pointer-events-none md:pointer-events-auto">
+      {/* 3D scene — fixed so the lattice persists behind the whole page */}
+      <div className="fixed inset-0 md:left-1/3 opacity-80 md:opacity-100 pointer-events-none md:pointer-events-auto">
         <HeroScene isMobile={isMobile} />
       </div>
 
@@ -73,6 +74,22 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="max-w-3xl"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-7 relative h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden ring-2 ring-accent/50 ring-offset-4 ring-offset-void shadow-lg shadow-accent/20"
+          >
+            <Image
+              src="/profile.jpg"
+              alt="Kaustubh Patange"
+              fill
+              sizes="(max-width: 640px) 96px, 112px"
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.04 }}
@@ -83,7 +100,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-accent-sage animate-ping opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-sage" />
             </span>
-            AVAILABLE FOR FREELANCE — CONTACT ME ↗
+            FOR FREELANCE — CONTACT ME ↗
           </motion.a>
 
           <p className="section-label mb-5 flex items-center gap-3">
