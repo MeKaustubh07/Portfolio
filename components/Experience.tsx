@@ -31,7 +31,7 @@ export default function Experience() {
                       href={exp.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-1 inline-flex items-center gap-1.5 text-accent-cyan hover:text-white transition-colors font-mono text-sm"
+                      className="mt-1 inline-flex items-center gap-1.5 text-accent-sage hover:text-white transition-colors font-mono text-sm"
                     >
                       @{exp.company} <ExternalLink size={13} />
                     </a>
@@ -41,7 +41,7 @@ export default function Experience() {
 
                 <ul className="mt-5 space-y-3">
                   {exp.points.map((p, j) => (
-                    <li key={j} className="flex gap-3 text-sm sm:text-[15px] text-slate-400 leading-relaxed">
+                    <li key={j} className="flex gap-3 text-sm sm:text-[15px] text-stone-400 leading-relaxed">
                       <span className="text-accent-soft mt-1.5 text-[8px]">◆</span>
                       {p}
                     </li>

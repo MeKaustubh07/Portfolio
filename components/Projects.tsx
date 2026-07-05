@@ -62,7 +62,7 @@ function TiltCard({ project, index }: { project: (typeof projects)[number]; inde
               {project.subtitle}
             </p>
 
-            <p className="mt-5 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
+            <p className="mt-5 text-sm sm:text-base text-stone-400 leading-relaxed max-w-2xl">
               {project.description}
             </p>
 
@@ -70,7 +70,7 @@ function TiltCard({ project, index }: { project: (typeof projects)[number]; inde
               {project.stack.map((s) => (
                 <span
                   key={s}
-                  className="font-mono text-[11px] sm:text-xs px-3 py-1 rounded-full border text-slate-300"
+                  className="font-mono text-[11px] sm:text-xs px-3 py-1 rounded-full border text-stone-300"
                   style={{ borderColor: `${project.accent}40`, background: `${project.accent}0d` }}
                 >
                   {s}
@@ -96,7 +96,7 @@ function TiltCard({ project, index }: { project: (typeof projects)[number]; inde
                 href={project.code}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-600 text-sm text-slate-300 hover:border-slate-400 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-stone-600 text-sm text-stone-300 hover:border-stone-400 transition-colors"
               >
                 <Github size={15} /> Source
               </motion.a>

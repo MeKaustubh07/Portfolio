@@ -8,16 +8,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: '#050510',
-        panel: '#0b0b1a',
-        line: 'rgba(139, 92, 246, 0.15)',
+        void: '#0d0d0b',
+        panel: '#15140f',
+        line: 'rgba(201, 160, 92, 0.14)',
         accent: {
-          DEFAULT: '#8b5cf6',
-          soft: '#a78bfa',
-          cyan: '#22d3ee',
-          pink: '#f472b6',
+          DEFAULT: '#c9a05c',
+          soft: '#e0c28c',
+          sage: '#a8bd8f',
+          clay: '#c47a52',
         },
-        mist: '#94a3b8',
+        mist: '#a8a29e',
       },
       fontFamily: {
         display: ['var(--font-display)', 'sans-serif'],

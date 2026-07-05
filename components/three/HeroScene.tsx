@@ -2,97 +2,106 @@
 
 import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial, Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
-function ParticleField({ count = 2400 }: { count?: number }) {
-  const ref = useRef<THREE.Points>(null);
+const SPACING = 0.62;
 
-  const positions = useMemo(() => {
-    const pts = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      // random points inside a sphere shell
-      const r = 4 + Math.random() * 6;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      pts[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      pts[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      pts[i * 3 + 2] = r * Math.cos(phi);
-    }
-    return pts;
-  }, [count]);
+/**
+ * An animated n-dimensional array: a lattice of instanced cells whose
+ * scale and color follow a wave function sweeping through the tensor,
+ * with a translucent "slice" plane scanning one axis — a visual nod to
+ * BLAS routines and ndarray slicing.
+ */
+function TensorLattice({ grid }: { grid: number }) {
+  const mesh = useRef<THREE.InstancedMesh>(null);
+  const group = useRef<THREE.Group>(null);
+  const slice = useRef<THREE.Mesh>(null);
+  const count = grid * grid * grid;
+  const half = (grid - 1) / 2;
+  const extent = grid * SPACING;
+
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  const tmpColor = useMemo(() => new THREE.Color(), []);
+  const brass = useMemo(() => new THREE.Color('#c9a05c'), []);
+  const sage = useMemo(() => new THREE.Color('#a8bd8f'), []);
+  const frame = useMemo(
+    () => new THREE.EdgesGeometry(new THREE.BoxGeometry(extent, extent, extent)),
+    [extent]
+  );
 
   useFrame((state, delta) => {
-    if (!ref.current) return;
-    ref.current.rotation.y += delta * 0.03;
-    ref.current.rotation.x += delta * 0.008;
-    // subtle parallax toward pointer
-    const { x, y } = state.pointer;
-    ref.current.rotation.y += x * delta * 0.05;
-    ref.current.rotation.x += y * delta * 0.02;
-  });
-
-  return (
-    <Points ref={ref} positions={positions} stride={3} frustumCulled>
-      <PointMaterial
-        transparent
-        color="#a78bfa"
-        size={0.035}
-        sizeAttenuation
-        depthWrite={false}
-        opacity={0.7}
-      />
-    </Points>
-  );
-}
-
-function CoreOrb() {
-  const mesh = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    if (!mesh.current) return;
     const t = state.clock.getElapsedTime();
-    mesh.current.rotation.y = t * 0.15;
-    mesh.current.rotation.z = t * 0.05;
+
+    if (group.current) {
+      group.current.rotation.y += delta * 0.1;
+      group.current.rotation.x = 0.4 + state.pointer.y * 0.12;
+      group.current.rotation.y += state.pointer.x * delta * 0.25;
+    }
+
+    // slice plane sweeps along Y — an ndarray slice in motion
+    if (slice.current) {
+      slice.current.position.y = Math.sin(t * 0.45) * half * SPACING;
+    }
+
+    const m = mesh.current;
+    if (!m) return;
+
+    const sliceY = slice.current ? slice.current.position.y : 0;
+    let i = 0;
+    for (let x = 0; x < grid; x++) {
+      for (let y = 0; y < grid; y++) {
+        for (let z = 0; z < grid; z++) {
+          const px = (x - half) * SPACING;
+          const py = (y - half) * SPACING;
+          const pz = (z - half) * SPACING;
+
+          const wave =
+            Math.sin(x * 0.85 + t * 1.3) *
+            Math.cos(y * 0.85 + t * 1.05) *
+            Math.sin(z * 0.85 + t * 0.85);
+          const norm = wave * 0.5 + 0.5;
+
+          // cells near the slice plane light up
+          const sliceGlow = Math.max(0, 1 - Math.abs(py - sliceY) / (SPACING * 1.2));
+
+          dummy.position.set(px, py, pz);
+          dummy.scale.setScalar(0.14 + 0.11 * norm + 0.08 * sliceGlow);
+          dummy.updateMatrix();
+          m.setMatrixAt(i, dummy.matrix);
+
+          tmpColor.lerpColors(brass, sage, norm).lerp(sage, sliceGlow * 0.6);
+          m.setColorAt(i, tmpColor);
+          i++;
+        }
+      }
+    }
+    m.instanceMatrix.needsUpdate = true;
+    if (m.instanceColor) m.instanceColor.needsUpdate = true;
   });
 
   return (
-    <Float speed={1.6} rotationIntensity={0.4} floatIntensity={1.2}>
-      <Sphere ref={mesh} args={[1.35, 64, 64]}>
-        <MeshDistortMaterial
-          color="#6d28d9"
-          emissive="#4c1d95"
-          emissiveIntensity={0.55}
-          roughness={0.15}
-          metalness={0.85}
-          distort={0.42}
-          speed={1.8}
-          wireframe
+    <group ref={group}>
+      <instancedMesh ref={mesh} args={[undefined, undefined, count]} key={count}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial roughness={0.3} metalness={0.55} />
+      </instancedMesh>
+
+      {/* slicing plane */}
+      <mesh ref={slice} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[extent * 1.06, extent * 1.06]} />
+        <meshBasicMaterial
+          color="#a8bd8f"
+          transparent
+          opacity={0.07}
+          side={THREE.DoubleSide}
+          depthWrite={false}
         />
-      </Sphere>
-    </Float>
-  );
-}
+      </mesh>
 
-function OrbitRing({ radius, speed, color, tilt }: { radius: number; speed: number; color: string; tilt: number }) {
-  const group = useRef<THREE.Group>(null);
-
-  useFrame((_, delta) => {
-    if (group.current) group.current.rotation.z += delta * speed;
-  });
-
-  return (
-    <group rotation={[tilt, 0.4, 0]}>
-      <group ref={group}>
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[radius, 0.008, 8, 128]} />
-          <meshBasicMaterial color={color} transparent opacity={0.35} />
-        </mesh>
-        <mesh position={[radius, 0, 0]}>
-          <sphereGeometry args={[0.06, 16, 16]} />
-          <meshBasicMaterial color={color} />
-        </mesh>
-      </group>
+      {/* bounding frame of the tensor */}
+      <lineSegments geometry={frame}>
+        <lineBasicMaterial color="#c9a05c" transparent opacity={0.28} />
+      </lineSegments>
     </group>
   );
 }
@@ -100,20 +109,16 @@ function OrbitRing({ radius, speed, color, tilt }: { radius: number; speed: numb
 export default function HeroScene({ isMobile = false }: { isMobile?: boolean }) {
   return (
     <Canvas
-      camera={{ position: [0, 0, 6], fov: 55 }}
+      camera={{ position: [0, 0.6, 7], fov: 50 }}
       dpr={[1, isMobile ? 1.5 : 2]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       style={{ background: 'transparent' }}
     >
       <Suspense fallback={null}>
-        <ambientLight intensity={0.4} />
-        <pointLight position={[6, 6, 6]} intensity={1.4} color="#a78bfa" />
-        <pointLight position={[-6, -4, -6]} intensity={0.8} color="#22d3ee" />
-        <ParticleField count={isMobile ? 1100 : 2400} />
-        <CoreOrb />
-        <OrbitRing radius={2.2} speed={0.5} color="#22d3ee" tilt={1.15} />
-        <OrbitRing radius={2.7} speed={-0.32} color="#f472b6" tilt={0.9} />
-        <OrbitRing radius={3.2} speed={0.2} color="#a78bfa" tilt={1.35} />
+        <ambientLight intensity={0.45} />
+        <directionalLight position={[5, 8, 5]} intensity={1.3} color="#f5e6c8" />
+        <pointLight position={[-6, -3, -4]} intensity={0.6} color="#a8bd8f" />
+        <TensorLattice grid={isMobile ? 6 : 7} />
       </Suspense>
     </Canvas>
   );

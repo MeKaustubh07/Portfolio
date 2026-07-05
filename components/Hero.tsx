@@ -41,7 +41,7 @@ function Typewriter() {
   }, [text, deleting, idx]);
 
   return (
-    <span className="font-mono text-accent-cyan">
+    <span className="font-mono text-accent-sage">
       {text}
       <span className="animate-pulse-glow">▊</span>
     </span>
@@ -73,6 +73,19 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="max-w-3xl"
         >
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-2.5 mb-7 px-4 py-2 rounded-full border border-accent-sage/40 bg-accent-sage/10 font-mono text-[11px] sm:text-xs tracking-wide text-accent-sage hover:bg-accent-sage/20 transition-colors"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-accent-sage animate-ping opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-sage" />
+            </span>
+            AVAILABLE FOR FREELANCE — CONTACT ME ↗
+          </motion.a>
+
           <p className="section-label mb-5 flex items-center gap-3">
             <span className="inline-block h-px w-10 bg-accent-soft/60" />
             Hello, I&apos;m
@@ -81,24 +94,23 @@ export default function Hero() {
           <h1 className="font-display font-bold tracking-tight text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95]">
             Kaustubh
             <br />
-            <span className="text-gradient">Patange</span>
+            <span className="text-accent-soft">Patange</span>
           </h1>
 
           <div className="mt-6 text-base sm:text-lg md:text-xl text-mist h-8">
             <Typewriter />
           </div>
 
-          <p className="mt-5 text-sm sm:text-base md:text-lg text-slate-400 leading-relaxed max-w-xl">
+          <p className="mt-5 text-sm sm:text-base md:text-lg text-stone-400 leading-relaxed max-w-xl">
             {profile.tagline}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
             <a
               href="#projects"
-              className="group relative px-6 py-3 rounded-full bg-accent text-white font-medium text-sm sm:text-base overflow-hidden transition-transform hover:scale-105"
+              className="px-6 py-3 rounded-full bg-accent text-void font-medium text-sm sm:text-base transition-all hover:scale-105 hover:brightness-110"
             >
-              <span className="relative z-10">View Projects</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-pink opacity-0 group-hover:opacity-100 transition-opacity" />
+              View Projects
             </a>
             <a
               href="#contact"

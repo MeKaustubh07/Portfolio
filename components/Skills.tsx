@@ -34,7 +34,7 @@ export default function Skills() {
                       <motion.span
                         key={item}
                         whileHover={{ scale: 1.1, y: -2 }}
-                        className="font-mono text-xs sm:text-[13px] px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-slate-300 hover:border-accent/40 hover:text-accent-soft transition-colors cursor-default"
+                        className="font-mono text-xs sm:text-[13px] px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-stone-300 hover:border-accent/40 hover:text-accent-soft transition-colors cursor-default"
                       >
                         {item}
                       </motion.span>

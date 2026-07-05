@@ -64,7 +64,7 @@ export const projects = [
     stack: ['Next.js', 'TypeScript', 'WebSockets', 'PostgreSQL'],
     live: 'https://co-sketch-ecru.vercel.app/',
     code: 'https://github.com/MeKaustubh07/CoSketch',
-    accent: '#22d3ee',
+    accent: '#a8bd8f',
   },
   {
     num: '02',
@@ -75,7 +75,7 @@ export const projects = [
     stack: ['Next.js', 'LangGraph', 'Qdrant', 'PostgreSQL', 'Redis'],
     live: 'https://corpora-xi.vercel.app/',
     code: 'https://github.com/MeKaustubh07/Corpora',
-    accent: '#f472b6',
+    accent: '#c47a52',
   },
 ];
 

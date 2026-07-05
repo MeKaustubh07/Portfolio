@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Mail, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 import { profile } from '@/lib/data';
 import { Reveal, SectionHeader } from '@/components/Reveal';
 
@@ -16,12 +16,6 @@ const channels = [
     label: 'Email',
     value: profile.email,
     href: `mailto:${profile.email}`,
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: profile.phone,
-    href: `tel:${profile.phone.replace(/\s/g, '')}`,
   },
   {
     icon: Github,
@@ -50,13 +44,13 @@ export default function Contact() {
         <SectionHeader num="05" label="Let's Connect" title="Get In Touch" />
 
         <Reveal>
-          <p className="max-w-2xl text-slate-400 text-sm sm:text-base leading-relaxed -mt-6 mb-12">
+          <p className="max-w-2xl text-stone-400 text-sm sm:text-base leading-relaxed -mt-6 mb-12">
             Open to internships, freelance work, open source collaboration, and interesting
             engineering problems. Inbox always open — I&apos;ll get back fast.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {channels.map((c, i) => (
             <Reveal key={c.label} delay={i * 0.08}>
               <motion.a
@@ -90,7 +84,7 @@ export default function Contact() {
               href={`mailto:${profile.email}`}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-accent via-accent-soft to-accent-pink text-white font-display font-semibold text-base sm:text-lg shadow-lg shadow-accent/25"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-accent text-void font-display font-semibold text-base sm:text-lg shadow-lg shadow-accent/25 hover:brightness-110 transition-all"
             >
               Say Hello <Mail size={18} />
             </motion.a>

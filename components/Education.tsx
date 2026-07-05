@@ -25,11 +25,11 @@ export default function Education() {
                 {education.school}
               </h4>
               <p className="mt-1 text-sm text-mist">{education.location}</p>
-              <p className="mt-4 text-sm sm:text-[15px] text-slate-300">{education.degree}</p>
-              <p className="mt-1 text-sm text-slate-400">{education.minor}</p>
+              <p className="mt-4 text-sm sm:text-[15px] text-stone-300">{education.degree}</p>
+              <p className="mt-1 text-sm text-stone-400">{education.minor}</p>
 
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs px-3 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan">
+                <span className="font-mono text-xs px-3 py-1.5 rounded-full bg-accent-sage/10 border border-accent-sage/30 text-accent-sage">
                   CGPA {education.cgpa}
                 </span>
                 <span className="font-mono text-xs text-mist">{education.period}</span>
@@ -41,7 +41,7 @@ export default function Education() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                   {education.coursework.map((c) => (
-                    <p key={c} className="flex items-center gap-2 text-sm text-slate-400">
+                    <p key={c} className="flex items-center gap-2 text-sm text-stone-400">
                       <span className="text-accent-soft text-[8px]">◆</span> {c}
                     </p>
                   ))}
@@ -55,8 +55,8 @@ export default function Education() {
             {achievements.map((a, i) => (
               <Reveal key={a.title} delay={0.08 * (i + 1)}>
                 <div className="card-border glass rounded-2xl p-5 sm:p-6 flex items-start gap-4 group">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-pink/10 border border-accent-pink/25 mt-0.5">
-                    <Award size={17} className="text-accent-pink" />
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-clay/10 border border-accent-clay/25 mt-0.5">
+                    <Award size={17} className="text-accent-clay" />
                   </span>
                   <div className="flex-1">
                     <div className="flex items-center justify-between gap-3">
@@ -65,12 +65,12 @@ export default function Education() {
                         href={a.link}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 font-mono text-[11px] text-accent-cyan hover:text-white transition-colors whitespace-nowrap"
+                        className="inline-flex items-center gap-1 font-mono text-[11px] text-accent-sage hover:text-white transition-colors whitespace-nowrap"
                       >
                         {a.linkLabel} <ExternalLink size={11} />
                       </a>
                     </div>
-                    <p className="mt-1.5 text-sm text-slate-400 leading-relaxed">{a.detail}</p>
+                    <p className="mt-1.5 text-sm text-stone-400 leading-relaxed">{a.detail}</p>
                   </div>
                 </div>
               </Reveal>

@@ -91,7 +91,7 @@ export default function Navbar() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between py-3 font-mono text-sm text-slate-300 hover:text-accent-soft border-b border-line/50"
+                    className="flex items-center justify-between py-3 font-mono text-sm text-stone-300 hover:text-accent-soft border-b border-line/50"
                   >
                     {l.label}
                     <span className="text-accent-soft/60 text-xs">0{i + 1}</span>

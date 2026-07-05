@@ -11,11 +11,11 @@ html {
 }
 
 body {
-  @apply bg-void text-slate-200 font-body antialiased overflow-x-hidden;
+  @apply bg-void text-stone-200 font-body antialiased overflow-x-hidden;
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(201, 160, 92, 0.35);
   color: #fff;
 }
 
@@ -24,32 +24,28 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050510;
+  background: #0d0d0b;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.35);
+  background: rgba(201, 160, 92, 0.35);
   border-radius: 3px;
 }
 
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-soft via-accent-cyan to-accent-pink;
-}
-
 .glass {
-  background: rgba(11, 11, 26, 0.55);
+  background: rgba(21, 20, 15, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(201, 160, 92, 0.12);
 }
 
 .card-border {
-  border: 1px solid rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(201, 160, 92, 0.14);
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-border:hover {
-  border-color: rgba(139, 92, 246, 0.45);
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.12);
+  border-color: rgba(201, 160, 92, 0.45);
+  box-shadow: 0 0 40px rgba(201, 160, 92, 0.1);
 }
 
 .section-heading {
@@ -62,8 +58,8 @@ body {
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(201, 160, 92, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 160, 92, 0.045) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
