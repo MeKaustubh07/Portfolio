@@ -1,7 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Code2 } from 'lucide-react';
-import { profile } from '@/lib/data';
+import { Download } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -10,16 +9,13 @@ export default function Footer() {
         <p className="font-mono text-xs text-mist order-2 sm:order-1">
           © {new Date().getFullYear()} Kaustubh Patange. Built with Next.js, Three.js & Framer Motion.
         </p>
-        <div className="flex items-center gap-5 order-1 sm:order-2">
-          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"
-            className="text-mist hover:text-accent-soft transition-colors"><Github size={17} /></a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"
-            className="text-mist hover:text-accent-soft transition-colors"><Linkedin size={17} /></a>
-          <a href={profile.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode"
-            className="text-mist hover:text-accent-soft transition-colors"><Code2 size={17} /></a>
-          <a href={`mailto:${profile.email}`} aria-label="Email"
-            className="text-mist hover:text-accent-soft transition-colors"><Mail size={17} /></a>
-        </div>
+        <a
+          href="/resume.pdf"
+          download="Kaustubh_Patange_Resume.pdf"
+          className="order-1 sm:order-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent/40 font-mono text-xs text-accent-soft hover:bg-accent/10 transition-colors"
+        >
+          <Download size={14} /> DOWNLOAD RESUME
+        </a>
       </div>
     </footer>
   );

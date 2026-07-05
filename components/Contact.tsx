@@ -38,7 +38,6 @@ export default function Contact() {
       <div className="absolute inset-0 opacity-50 pointer-events-none">
         <SectionBackdrop />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-transparent to-void pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader num="05" label="Let's Connect" title="Get In Touch" />

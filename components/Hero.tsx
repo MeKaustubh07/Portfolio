@@ -65,7 +65,6 @@ export default function Hero() {
 
       {/* radial fade so text stays readable */}
       <div className="absolute inset-0 bg-gradient-to-r from-void via-void/80 to-transparent md:via-void/60 pointer-events-none" />
-      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-void to-transparent pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 w-full pt-24 pb-16">
         <motion.div
