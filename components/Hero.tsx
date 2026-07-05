@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, Code2 } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Code2, Download } from 'lucide-react';
 import { profile } from '@/lib/data';
 
 const HeroScene = dynamic(() => import('@/components/three/HeroScene'), {
@@ -133,6 +133,13 @@ export default function Hero() {
               className="px-6 py-3 rounded-full border border-accent/40 text-accent-soft font-medium text-sm sm:text-base hover:bg-accent/10 transition-colors"
             >
               Get in Touch
+            </a>
+            <a
+              href="/resume.pdf"
+              download="Kaustubh_Patange_Resume.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-accent-sage/40 text-accent-sage font-medium text-sm sm:text-base hover:bg-accent-sage/10 transition-colors"
+            >
+              <Download size={16} /> Download Resume
             </a>
           </div>
 
