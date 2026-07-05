@@ -34,8 +34,7 @@ function TensorLattice({ grid }: { grid: number }) {
 
     if (group.current) {
       group.current.rotation.y += delta * 0.1;
-      group.current.rotation.x = 0.4 + state.pointer.y * 0.12;
-      group.current.rotation.y += state.pointer.x * delta * 0.25;
+      group.current.rotation.x = 0.4;
     }
 
     // slice plane sweeps along Y — an ndarray slice in motion

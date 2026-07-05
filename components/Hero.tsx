@@ -57,14 +57,14 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden grid-bg">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* 3D scene — fixed so the lattice persists behind the whole page */}
-      <div className="fixed inset-0 md:left-1/3 opacity-80 md:opacity-100 pointer-events-none md:pointer-events-auto">
+      <div className="fixed inset-0 md:left-1/3 opacity-80 md:opacity-100 pointer-events-none">
         <HeroScene isMobile={isMobile} />
       </div>
 
-      {/* radial fade so text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-r from-void via-void/80 to-transparent md:via-void/60 pointer-events-none" />
+      {/* readability dim — fixed so it matches the fixed lattice with no seam */}
+      <div className="fixed inset-0 bg-gradient-to-r from-void via-void/80 to-transparent md:via-void/60 pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 w-full pt-24 pb-16">
         <motion.div
