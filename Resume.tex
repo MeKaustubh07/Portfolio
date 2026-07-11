@@ -120,7 +120,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=2pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
@@ -132,7 +132,7 @@
 %---------- HEADING ----------
 
 \begin{center}
-    \textbf{\Huge \scshape Kaustubh Patange} \\ \vspace{3pt}
+    \textbf{\Huge \scshape Kaustubh Patange} \\ \vspace{2pt}
     \small
     \faMobile \hspace{.5pt} \href{tel:9307410320}{+91 9307410320}
     $|$
@@ -141,8 +141,8 @@
     \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/kaustubh-patange-b12835291/}{LinkedIn}
     $|$
     \faGithub \hspace{.5pt} \href{https://github.com/MeKaustubh07}{GitHub}
-    % $|$
-    % \faGlobe \hspace{.5pt} \href{https://arasgungore.github.io}{Portfolio}
+    $|$
+    \faGlobe \hspace{.5pt} \href{https://portfolio-five-rho-8ilihz2127.vercel.app}{Portfolio}
     % $|$
     % \faMapMarker \hspace{.5pt} \href{https://www.google.com/maps/place/Bogazici+University+North+Campus/@41.0863067,29.0441352,15z/data=!4m5!3m4!1s0x0:0x9d2497b07c8edb2f!8m2!3d41.0863067!4d29.0441352}{Istanbul, Turkey}
 \end{center}
@@ -152,7 +152,7 @@
 %----------- EDUCATION -----------
 
 \section{Education}
-  \vspace{3pt}
+  \vspace{2pt}
   \resumeSubHeadingListStart
     
     \resumeEducationHeading
@@ -160,7 +160,7 @@
       % \normalfont{(Admission rate: 0.09\%)}
       }{Solapur, Maharashtra, India}
       {Bachelor of Technology in Computer Science and Engineering;   \textbf{CGPA: 8.98}}{Aug 2023 \textbf{--} April 2027}
-      {Minor Degree in Electronics and Telecommunication Engineering;}
+      {Minor Degree in Electronics and Telecommunication Engineering}
       {}
       %   \resumeSubHeadingListStart
       %   \small{\item{
@@ -179,7 +179,7 @@
   \resumeSubHeadingListStart
     \item{\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
       \small{$\bullet$ Linear Algebra} & \small{$\bullet$ Digital System Design} & \small{$\bullet$ Database Management Systems } \\
-      \small{$\bullet$ Scientific Computing} & \small{$\bullet$ Backend Systems} & \small{$\bullet$ Data Structures \& Algorithm } \\
+      \small{$\bullet$ Scientific Computing} & \small{$\bullet$ Distributed Systems} & \small{$\bullet$ Data Structures \& Algorithm } \\
     \end{tabular*}}\vspace{-10pt}
   \resumeSubHeadingListEnd
 
@@ -188,24 +188,31 @@
 %----------- EXPERIENCE -----------
 
 \section{Experience}
-  \vspace{3pt}
+  \vspace{2pt}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {GSoC Mentee, Core Contributor (\href{https://github.com/stdlib-js/stdlib}{Link})}{November 2025 \textbf{--} Present}
-      {stdlib-js/stdlib}{}
+      {Google Summer of Code Contributor $|$ {\normalfont\small\emph{JavaScript, C, Fortran, Node.js}}}{May 2026 \textbf{--} Present}
+      {\href{https://github.com/stdlib-js/google-summer-of-code/issues/205}{stdlib-js/stdlib - RFC}}{}
         \resumeItemListStart
-            \resumeItem{Successfully contributed 100+ PRs including entire statistics and \textbf{BLAS} namespace for n-dim-arrays, core basic linear algebraic subroutines along with testing and benchmarking.}
-            \resumeItem{Reviewed multiple PRs to maintain repository guidelines and suggested code fixes.}
-            \resumeItem{Extending Level 2 and Level 3 \textbf{BLAS} routines for linear algebra and C addons as part of \textbf{GSoC 2026 Cohort}.}
+            \resumeItem{Extending Level 2 and Level 3 \textbf{BLAS} routines (real and complex precision) with JavaScript, \textbf{C}, and \textbf{Fortran} implementations for near-native numerical performance in Node.js.}
+            \resumeItem{Implementing a three-layer API architecture (CBLAS-compatible interface, strided-array compute kernels, and \texttt{ndarray} wrappers) with loop unrolling and cache-friendly memory-access optimizations.}
         \resumeItemListEnd
 
     \resumeSubheading
-      {Software Developer (\href{https://www.linkedin.com/company/nexentia-in/posts/?feedView=all}{Link})}{July 2025 \textbf{--} September 2025}
-      {Nexentia}{}
+      {Core Contributor stdlib-js $|$ {\normalfont\small\emph{JavaScript, C, Node.js}}}{November 2025 \textbf{--} April 2026}
+      {\href{https://github.com/stdlib-js/stdlib}{stdlib-js/stdlib} -- open-source numerical computing library}{}
         \resumeItemListStart
-            \resumeItem{Developed and maintained backend services for a Warehouse Management System (WMS), implementing secure RESTful APIs to support inventory tracking, order processing, and warehouse operations.}
-            \resumeItem{Designed and optimized database schemas and business logic, improving data consistency and enabling reliable management of inventory, stock movements, and fulfillment workflows while collaborating with the engineering team to deliver production-ready features.}
+            \resumeItem{Shipped \textbf{128 merged PRs} (\href{https://github.com/stdlib-js/stdlib/pulls?q=is\%3Apr+author\%3AMeKaustubh07+is\%3Amerged}{Link}) spanning \textbf{BLAS} routines, statistical reductions, and native \textbf{C} add-ons, each with full test suites, benchmarks, and documentation.}
+            \resumeItem{Designed 60+ \texttt{ndarray} API packages and numerically stable computation kernels in JavaScript and C; reviewed community PRs to enforce strict API design, testing, and documentation standards.}
+        \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Developer $|$ {\normalfont\small\emph{Next.js, Express, PostgreSQL, REST APIs}}}{July 2025 \textbf{--} September 2025}
+      {\href{https://www.linkedin.com/company/nexentia-in/posts/?feedView=all}{Nexentia}}{}
+        \resumeItemListStart
+            \resumeItem{Engineered scalable backend services and secure \textbf{REST APIs} (Node.js, Express, PostgreSQL) for a Warehouse Management System powering inventory tracking, order processing, and fulfillment workflows.}
+            \resumeItem{Designed normalized relational schemas with indexing and \textbf{ACID}-compliant transactions to guarantee stock consistency under concurrent order operations; implemented \textbf{JWT} authentication and role-based access control.}
         \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -215,7 +222,7 @@
 %----------- PROJECTS -----------
 
 \section{Projects}
-    \vspace{3pt}
+  \vspace{2pt}
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
@@ -242,13 +249,13 @@
   \resumeSubHeadingListStart
     \small{\item{
         
-        \textbf{Languages:}{ C/C++, Java, Python, JavaScript, TypeScript, Fortran} \\ \vspace{3pt}
+        \textbf{Languages:}{ C, C++, Java, Python, JavaScript, TypeScript, Fortran} \\ \vspace{2pt}
         
-        \textbf{Frameworks:}{ ExpressJS, NodeJS, EJS, FastAPI, ReactJS, NextJS, TailwindCSS, Bootstrap} \\ \vspace{3pt}
+        \textbf{Frameworks:}{ ExpressJS, NodeJS, EJS, FastAPI, ReactJS, NextJS, TailwindCSS, Bootstrap} \\ \vspace{2pt}
         
-        \textbf{AI \& ML:}{ PyTorch, OpenCV, Langchain, LangGraph, pgvector, Pinecone, Pandas} \\ \vspace{3pt}
+        \textbf{AI \& ML:}{ PyTorch, OpenCV, Langchain, LangGraph, pgvector, Pinecone, Pandas} \\ \vspace{2pt}
         
-        \textbf{Other:}{ Bash, Postman, Git, Docker, AWS, Kafka, Redis, MongoDB, Supabase, Postgres, SQL} \\ \vspace{3pt}
+        \textbf{Other:}{ Bash, REST API, Postman, Git, Docker, AWS, Kafka, Redis, MongoDB, Supabase, Postgres, SQL} \\ \vspace{1pt}
         
     }}
   \resumeSubHeadingListEnd
@@ -261,11 +268,11 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{LeetCode:}{ Solved 200+ data structure and algorithm problems. (\href{https://leetcode.com/u/kaustubh007/}{Profile})} \\ \vspace{3pt}
+        \textbf{LeetCode:}{ Solved 200+ data structure and algorithm problems. (\href{https://leetcode.com/u/kaustubh007/}{Profile})} \\ \vspace{2pt}
         
-        \textbf{stdlib:}{ \textbf{Member} of the numerical library called stdlib on GitHub.} \\ \vspace{3pt}
+        \textbf{stdlib:}{ \textbf{Member} of the numerical library called stdlib on GitHub.} \\ \vspace{2pt}
         
-        \textbf{NPTEL Online Certification:}{ Programming with Generative AI (Aug-Oct 2025). (\href{https://drive.google.com/file/d/1-zN8Gxmnq5S4PSVZPvqMEsFZuBSUXPpA/view?usp=sharing}{Certificate})} \\ \vspace{3pt}
+        \textbf{NPTEL Online Certification:}{ Programming with Generative AI (Aug-Oct 2025). (\href{https://drive.google.com/file/d/1-zN8Gxmnq5S4PSVZPvqMEsFZuBSUXPpA/view?usp=sharing}{Certificate})} \\ \vspace{2pt}
         
         \textbf{Infosys Springboard:}{ Agile Scrum Certification (May 2026). (\href{https://drive.google.com/file/d/1Ts5yiCCfG0jg3e6VYl33A_S_wrl5y6V4/view?usp=sharing}{Certificate})}
     }}

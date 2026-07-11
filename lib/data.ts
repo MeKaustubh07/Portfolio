@@ -23,7 +23,7 @@ export const education = {
     'Digital System Design',
     'Database Management Systems',
     'Scientific Computing',
-    'Backend Systems',
+    'Distributed Systems',
     'Data Structures & Algorithms',
   ],
 };
@@ -31,15 +31,25 @@ export const education = {
 export const experience = [
   {
     company: 'stdlib-js/stdlib',
-    role: 'GSoC Mentee · Core Contributor',
-    period: 'Nov 2025 — Present',
+    role: 'Google Summer of Code Contributor',
+    period: 'May 2026 — Present',
+    link: 'https://github.com/stdlib-js/google-summer-of-code/issues/205',
+    points: [
+      'Extending Level 2 and Level 3 BLAS routines (real and complex precision) with JavaScript, C, and Fortran implementations for near-native numerical performance in Node.js.',
+      'Implementing a three-layer API architecture (CBLAS-compatible interface, strided-array compute kernels, and ndarray wrappers) with loop unrolling and cache-friendly memory-access optimizations.',
+    ],
+    tags: ['JavaScript', 'C', 'Fortran', 'Node.js', 'BLAS'],
+  },
+  {
+    company: 'stdlib-js/stdlib',
+    role: 'Core Contributor',
+    period: 'Nov 2025 — Apr 2026',
     link: 'https://github.com/stdlib-js/stdlib',
     points: [
-      'Contributed 100+ PRs including the entire statistics and BLAS namespace for n-dimensional arrays, core linear algebraic subroutines, with full testing and benchmarking.',
-      'Reviewed multiple PRs to maintain repository guidelines and suggested code fixes.',
-      'Extending Level 2 and Level 3 BLAS routines for linear algebra and C addons as part of the GSoC 2026 Cohort.',
+      'Shipped 128 merged PRs spanning BLAS routines, statistical reductions, and native C add-ons, each with full test suites, benchmarks, and documentation.',
+      'Designed 60+ ndarray API packages and numerically stable computation kernels in JavaScript and C; reviewed community PRs to enforce strict API design, testing, and documentation standards.',
     ],
-    tags: ['JavaScript', 'C', 'BLAS', 'Numerical Computing', 'Open Source'],
+    tags: ['JavaScript', 'C', 'Node.js', 'Numerical Computing', 'Open Source'],
   },
   {
     company: 'Nexentia',
@@ -47,10 +57,10 @@ export const experience = [
     period: 'Jul 2025 — Sep 2025',
     link: 'https://www.linkedin.com/company/nexentia-in/posts/?feedView=all',
     points: [
-      'Developed and maintained backend services for a Warehouse Management System (WMS), implementing secure RESTful APIs for inventory tracking, order processing, and warehouse operations.',
-      'Designed and optimized database schemas and business logic, improving data consistency and enabling reliable management of inventory, stock movements, and fulfillment workflows.',
+      'Engineered scalable backend services and secure REST APIs (Node.js, Express, PostgreSQL) for a Warehouse Management System powering inventory tracking, order processing, and fulfillment workflows.',
+      'Designed normalized relational schemas with indexing and ACID-compliant transactions to guarantee stock consistency under concurrent order operations; implemented JWT authentication and role-based access control.',
     ],
-    tags: ['Node.js', 'REST APIs', 'PostgreSQL', 'Backend'],
+    tags: ['Next.js', 'Express', 'PostgreSQL', 'REST APIs'],
   },
 ];
 
@@ -82,7 +92,7 @@ export const projects = [
 export const skills = [
   {
     category: 'Languages',
-    items: ['C/C++', 'Java', 'Python', 'JavaScript', 'TypeScript', 'Fortran'],
+    items: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'TypeScript', 'Fortran'],
   },
   {
     category: 'Frameworks',
@@ -94,7 +104,7 @@ export const skills = [
   },
   {
     category: 'Tools & Infra',
-    items: ['Bash', 'Postman', 'Git', 'Docker', 'AWS', 'Kafka', 'Redis', 'MongoDB', 'Supabase', 'PostgreSQL', 'SQL'],
+    items: ['Bash', 'REST API', 'Postman', 'Git', 'Docker', 'AWS', 'Kafka', 'Redis', 'MongoDB', 'Supabase', 'PostgreSQL', 'SQL'],
   },
 ];
 

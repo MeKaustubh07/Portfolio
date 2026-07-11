@@ -13,7 +13,7 @@ export default function Experience() {
 
         <div className="relative ml-3 sm:ml-6 border-l border-accent/25 space-y-12 sm:space-y-16">
           {experience.map((exp, i) => (
-            <Reveal key={exp.company} delay={i * 0.12} className="relative pl-8 sm:pl-12">
+            <Reveal key={`${exp.company}-${exp.role}`} delay={i * 0.12} className="relative pl-8 sm:pl-12">
               {/* timeline node */}
               <span className="absolute -left-[9px] top-1.5 flex h-[17px] w-[17px] items-center justify-center">
                 <span className="absolute h-full w-full rounded-full bg-accent/30 animate-ping" />
